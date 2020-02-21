@@ -276,11 +276,12 @@ books = [
     }
 ]
 
+for book in books:
+    print(book["title"])
+
 genre = input("Enter a genre: ")
 
-while genre.capitalize() not in ["Self-help", "Leadership", "Poetry", "Fantasy", "Non-fiction"]:
+while genre not in ["Self-help", "Leadership", "Poetry", "Fantasy", "Non-fiction"]:
     genre = input("Enter a genre: ")
 
-for book in books:
-    for genre in book:
-        print(book["title"])
+[book["title"] for book in books if book["genre"] == genre]
