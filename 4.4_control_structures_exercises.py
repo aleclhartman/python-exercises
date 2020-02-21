@@ -114,4 +114,173 @@ for n in range(51):
         continue
     print("Here is an odd number: {}".format(n))
 
+#   d. The input function can be used to prompt for input and
+#      use that input in your python code. Prompt the user to
+#      enter a positive number and write a loop that counts from
+#      0 to that number. (Hints: first make sure that the value
+#      the user entered is a valid number, also note that the
+#      input function returns a string, so you'll need to convert
+#      this to a numeric type.)
+i = int(input("Give me a positive number: "))
 
+while i < 1 or i == float:
+    i = int(input("Give me a positive number: "))
+
+for n in range(0, i+1):
+    print(n)
+
+#   e. Write a program that prompts the user for a positive
+#      integer. Next write a loop that prints out the numbers
+#      from the number the user entered down to 1.
+i = int(input("Give me a posistive integer: "))
+
+while i < 1:
+    i = int(input("Give me a posistive integer: "))
+
+for n in range(i, 0-1, -1):
+    print(n)
+
+# 3. Fizzbuzz
+#   One of the most common interview questions for entry-level
+#   programmers is the FizzBuzz test. Developed by Imran Ghory,
+#   the test is designed to test basic looping and conditional
+#   logic skills.
+#       - Write a program that prints the numbers from 1 to 100.
+for n in range(1, 101):
+    print(n)
+
+#       - For multiples of three print "Fizz" instead of the number
+for n in range(1, 101):
+    if n % 3 == 0:
+        print("Fizz")
+        continue
+    print(n)
+
+#       - For the multiples of five print "Buzz".
+for n in range(1, 101):
+    if n % 3 == 0:
+        print("Fizz")
+        continue
+    print(n)
+    print(n)
+
+#       - For numbers which are multiples of both three
+#         and five print "FizzBuzz".
+for n in range(1, 101):
+    if n % 3 == 0 and n % 5 == 0:
+        print("FizzBuzz")
+        continue
+    if n % 3 == 0:
+        print("Fizz")
+        continue
+    if n % 5 == 0:
+        print("Buzz")
+        continue
+    print(n)
+
+# 4. Display a table of powers.
+#   - Prompt the user to enter an integer.
+#   - Display a table of squares and cubes from 1
+#     to the value entered.
+#   - Ask if the user wants to continue.
+#   - Assume that the user will enter valid data.
+#   - Only continue if the user agrees to.
+i = int(input("Give me an integer: "))
+
+while i < 1:
+    i = int(input("Give me an integer: "))   
+
+number = [n for n in range(1, i + 1)]
+squared = [n*n for n in range(1, i + 1)]
+cubed = [n*n*n for n in range(1, i + 1)]
+columns = ["number", "squared", "cubed"]
+data = [columns] + list(zip(number, squared, cubed))
+
+proceed = input("Do you wish to continue? ")
+
+if proceed.capitalize() == 'Yes':
+    for a, h in enumerate(data):
+        line = '|'.join(str(x).ljust(12) for x in h)
+        print(line)
+        if a == 0:
+            print('-' * len(line))
+else:
+    print("Halt")
+
+# 5. Convert given number grades into letter grades.
+#   - Prompt the user for a numerical grade from 0 to 100.
+#   - Display the corresponding letter grade.
+#   - Prompt the user to continue.
+#   - Assume that the user will enter valid integers for the grades.
+#   - The application should only continue if the user agrees to.
+grade = int(input("Enter your grade here: "))
+
+while grade < 0 or grade > 100:
+    grade = int(input("Enter your grade here: "))
+    
+    
+proceed = input("Do you wish to continue? ")
+
+if proceed.capitalize() == 'Yes':
+    if grade in range(101, 88-1, -1):
+        print("A")
+    elif grade in range(87, 80-1, -1):
+        print("B")
+    elif grade in range(79, 67-1, -1):
+        print("C")
+    elif grade in range(66, 60-1, -1):
+        print("D")
+    else:
+        print("F")
+else:
+    print("Halt")
+
+# 6. Create a list of dictionaries where each dictionary
+#    represents a book that you have read. Each dictionary
+#    in the list should have the keys title, author, and genre.
+#    Loop through the list and print out information about each
+#    book.
+#   a. Prompt the user to enter a genre, then loop through your
+#      books list and print out the titles of all the books in
+#      that genre.
+books = [
+    {
+        "title": "12 Rules for Life",
+        "author": "Jordan Peterson",
+        "genre": "Self-help"
+    },
+    {
+        "title": "Extreme Ownership",
+        "author": "Jocko Willink",
+        "genre": "Leadership"
+    },
+    {
+        "title": "The Prophet",
+        "author": "Kahlil Gibran",
+        "genre": "Poetry"
+    },
+    {
+        "title": "Lord of the Rings",
+        "author": "J. R. R. Tolkien",
+        "genre": "Fantasy"
+    },
+    {
+        "title": "Letter to a Christian Nation",
+        "author": "Sam Harris",
+        "genre": "Non-fiction"
+    },
+    {
+        "title": "Peace is Every Step",
+        "author": "Thich Nhat Hanh",
+        "genre": "Self-help"
+    }
+]
+
+genre = input("Enter a genre: ")
+
+while genre.capitalize() not in ["Self-help", "Leadership", "Poetry", "Fantasy", "Non-fiction"]:
+    genre = input("Enter a genre: ")
+
+for book in books:
+    for genre in book:
+        print(book["title"])
