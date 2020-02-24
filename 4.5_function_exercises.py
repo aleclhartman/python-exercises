@@ -97,7 +97,9 @@ def normalize_name(string):
         if character.isidentifier() == False:
             string = string.replace(character, " ")
     string = string.strip()
-    string = string.replace(" ", "_")
+    for character in string:
+        if character == " ":
+            string = string.replace(character, "_")
     string = string.lower()
     return string
 
