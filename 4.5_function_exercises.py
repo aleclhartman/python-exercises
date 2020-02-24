@@ -1,3 +1,7 @@
+# Run procedural code on import
+if __name__ == '__main__':
+    print("Function exercises successfully imported.")
+
 # Define a function named is_two. It should accept one input and return True
 # if the passed input is either the number or the string 2, False otherwise.
 def is_two(x):
