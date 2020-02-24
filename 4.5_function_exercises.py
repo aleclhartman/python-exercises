@@ -93,12 +93,24 @@ remove_vowels("alec")
 # everything should be lowercase
 # spaces should be replaced with underscores
 def normalize_name(string):
-    string = string.lower()
-    string = string.strip()
-    string = string.replace(" ", "_")
     for character in string:
         if character.isidentifier() == False:
-            string = string.replace(character, "")
+            string = string.replace(character, " ")
+    string = string.strip()
+    string = string.replace(" ", "_")
+    string = string.lower()
     return string
 
-normalize_name("$Al^ec Lou%is Hart#man!")
+normalize_name("% Completed")
+
+# Write a function named cumsum that accepts a list of
+# numbers and returns a list that is the cumulative sum of the numbers in the list.
+def cumsum(numbers):
+    cumulative_list = []
+    cumulative_sum = 0
+    for n in numbers:
+        cumulative_sum += n
+        cumulative_list.append(cumulative_sum)
+    return cumulative_list
+
+cumsum([1, 2, 3, 4])
