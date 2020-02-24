@@ -80,10 +80,10 @@ get_letter_grade(69)
 def remove_vowels(string):
     string = string.lower()
     vowels = ["a", "e", "i", "o", "u"]
-    for letters in string.lower():
+    for letters in string:
         if letters in vowels:
             string = string.replace(letters, "")
-    print(string)
+    return string
 
 remove_vowels("alec")
 
@@ -116,3 +116,4 @@ def cumsum(numbers):
     return cumulative_list
 
 cumsum([1, 2, 3, 4])
+
