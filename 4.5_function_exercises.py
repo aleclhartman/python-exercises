@@ -117,3 +117,25 @@ def cumsum(numbers):
 
 cumsum([1, 2, 3, 4])
 
+# Create a function named twelveto24. It should accept a string in the format 10:45am or
+# 4:30pm and return a string that is the representation of the time in a 24-hour format.
+# Bonus write a function that does the opposite.
+def twelveto24(string):
+    return hours(string) + ":" + minutes(string)
+
+twelveto24("12:00am")
+
+def hours(string):
+    string = string.split(":")
+    hour = int(string[0])
+    if "p" in string[1] and hour != 12:
+        return str(hour + 12)
+    if hour == 12 and "a" in string[1]:
+        return "00"
+    return str(hour)
+
+def minutes(string):
+    string = string.split(":")
+    minute_m = string[1]
+    minute = minute_m[:2]
+    return minute
