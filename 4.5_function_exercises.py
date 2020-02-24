@@ -86,3 +86,19 @@ def remove_vowels(string):
     print(string)
 
 remove_vowels("alec")
+
+# Define a function named normalize_name. It should accept a string and return a valid python identifier, that is:
+# anything that is not a valid python identifier should be removed
+# leading and trailing whitespace should be removed
+# everything should be lowercase
+# spaces should be replaced with underscores
+def normalize_name(string):
+    string = string.lower()
+    string = string.strip()
+    string = string.replace(" ", "_")
+    for character in string:
+        if character.isidentifier() == False:
+            string = string.replace(character, "")
+    return string
+
+normalize_name("$Al^ec Lou%is Hart#man!")
