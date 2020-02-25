@@ -21,7 +21,7 @@ grocery_list = ["chia seed", "almonds", "kale", "yogurt", "guava"]
 # Create a function named make_grocery_list. When run, this function should write the contents of the grocery_list variable to a file named my_grocery_list.txt.
 def make_grocery_list(grocery_list):
     filename = "my_grocery_list.txt"
-    with open(filename, "a") as f:
+    with open(filename, "w") as f:
         for item in grocery_list:
             f.write(item + "\n")
 
@@ -39,8 +39,13 @@ show_grocery_list()
 
 # Create a function named buy_item. It should accept the name of an item on the grocery list, and remove that item from the list.
 
-def buy_item(item):
-    remaining_items = grocery_list.remove(item)
-    make_grocery_list(remaining_items)
+def buy_item(item, grocery_list):
 
-buy_item("kale")
+    # remove mutates the lst object
+    grocery_list.remove(item)
+
+    make_grocery_list(grocery_list)
+
+buy_item("kale", grocery_list)
+
+show_grocery_list()
