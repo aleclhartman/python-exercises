@@ -1,5 +1,5 @@
 # Example of unpacking tuple
-a, b = (1, 2)
+fva
 
 filename = "4.6_import_exercises.py"
 
