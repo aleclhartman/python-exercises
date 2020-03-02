@@ -89,15 +89,9 @@ mean_of_a = sum_of_a/len([i for i in a])
 print(mean_of_a)
 
 # Exercise 5 - Make a variable named product_of_a to hold the product of multiplying all the numbers in the above list together
-def product(numbers):
-    n = 1
-    for n in numbers:
-        n *= n
-    return n
-
-product(a)
-
-product_of_a = product(a)
+product_of_a = 1
+for n in a:
+    product_of_a *= n
 
 print(product_of_a)
 
@@ -131,8 +125,9 @@ for row in b:
     sum_of_b += sum(row)
 
 b = np.array(b)
-b.sum(axis=1)
+sum_of_b = b.sum()
 
+print(sum_of_b)
 
 # Exercise 2 - refactor the following to use numpy. 
 min_of_b = min(b[0]) if min(b[0]) <= min(b[1]) else min(b[1])  
@@ -165,6 +160,10 @@ for row in b:
 
 np.square(b)
 
+squares_of_b = b ** 2
+
+print(squares_of_b)
+
 # Exercise 7 - refactor using numpy to determine the odds_in_b
 odds_in_b = []
 for row in b:
@@ -188,7 +187,7 @@ b[b % 2 == 0]
 b.shape
 
 # Exercise 10 - transpose the array b.
-np.transpose(b)
+b.T
 
 # Exercise 11 - reshape the array b to be a single list of 6 numbers. (1 x 6)
 np.reshape(b, (1,6) )
@@ -264,13 +263,26 @@ d[d > 0]
 np.unique(d)
 
 # Exercise 7 - Determine how many unique numbers there are in d.
-len(np.unique(d))
+np.unique(d).size
 
 # Exercise 8 - Print out the shape of d.
 d.shape
 
 # Exercise 9 - Transpose and then print out the shape of d.
-d = d.transpose()
-d
+d.T.shape
+
 # Exercise 10 - Reshape d into an array of 9 x 2
-np.reshape(d, (9,2))
+d.reshape(9, 2)
+
+sum(d) # sum function 
+vs
+d.sum() # sum method
+
+# method is a function that lives on an object
+
+d.sum()
+vs
+d.shape # property; a description of the array
+
+# shape is a tuple that has the shape of the array 
+
